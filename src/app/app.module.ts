@@ -8,12 +8,14 @@ import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { EscolhaPage } from '../pages/escolha/escolha';
+import { CadastroPage } from '../pages/cadastro/cadastro';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    EscolhaPage
+    EscolhaPage,
+    CadastroPage
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,8 @@ import { EscolhaPage } from '../pages/escolha/escolha';
   entryComponents: [
     MyApp,
     HomePage,
-    EscolhaPage
+    EscolhaPage,
+    CadastroPage
   ],
   providers: [
     StatusBar,
