@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, LoadingController, AlertController } from 'ionic-angular';
 
+import { Carro } from '../../domain/carro/carro';
 import { Http } from '@angular/http';
 import { EscolhaPage } from '../escolha/escolha';
 
@@ -13,7 +14,7 @@ import 'rxjs/add/operator/toPromise';
 })
 export class HomePage implements OnInit {
 
-  public carros;
+  public carros: Carro[];
 
   constructor(
     public navCtrl: NavController,
