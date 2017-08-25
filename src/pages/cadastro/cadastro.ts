@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, Alert } from 'ionic-angular';
 import { Carro } from '../../domain/carro/carro';
 import { Agendamento } from '../../domain/agendamento/agendamento';
-
-import { Http } from '@angular/http';
+import { AgendamentoService } from '../../domain/agendamento/agendamento-service';
 import { HomePage } from '../home/home';
 
 
@@ -22,7 +21,7 @@ export class CadastroPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private _http: Http,
+    private _service: AgendamentoService,
     private _alertCtrl: AlertController) {
     this.carro = this.navParams.get('carro');
     this.precoTotal = this.navParams.get('precoTotal');
@@ -57,10 +56,7 @@ export class CadastroPage {
 
     }
     // utilizaremos o método get apenas por orientação do email.txt
-    let api = `https://aluracar.herokuapp.com/salvarpedido?carro=${this.agendamento.carro.nome}&preco=${this.agendamento.valor}&nome=${this.agendamento.nome}&endereco=${this.agendamento.endereco}&email=${this.agendamento.email}&dataAgendamento=${this.agendamento.data}`;
-    this._http
-      .get(api)
-      .toPromise()
+    this._service.agenda(this.agendamento)
       .then(() => {
         this._alerta.setSubTitle('Agendamento realizado com sucesso!');
         this._alerta.present();
