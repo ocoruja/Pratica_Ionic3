@@ -31,8 +31,8 @@ export class CadastroPage {
 
     this._alerta =  this._alertCtrl.create({
       title: 'Aviso',
-      //buttons: [{ text: 'OK', handler: () => this.navCtrl.push(HomePage) }]
-      buttons: [{ text: 'OK', handler: () => alert('oi') }]
+      buttons: [{ text: 'OK', handler: () => {this.navCtrl.setRoot(HomePage)} }]
+      //buttons: [{ text: 'OK', handler: () => alert('oi') }]
     });
   }
 
@@ -46,6 +46,16 @@ export class CadastroPage {
   */
 
   agenda() {
+    if(!this.agendamento.nome || !this.agendamento.email || !this.agendamento.endereco) {
+      this._alertCtrl.create({
+        title: 'Preenchimento obrigatório!',
+        subTitle: 'Você deve preencher todas as informações',
+        buttons: [{ text: 'OK '}]
+      }).present();
+
+      return; // esse return impede que o código anterior seja executado em caso de nao preenchimento
+
+    }
     // utilizaremos o método get apenas por orientação do email.txt
     let api = `https://aluracar.herokuapp.com/salvarpedido?carro=${this.agendamento.carro.nome}&preco=${this.agendamento.valor}&nome=${this.agendamento.nome}&endereco=${this.agendamento.endereco}&email=${this.agendamento.email}&dataAgendamento=${this.agendamento.data}`;
     this._http
