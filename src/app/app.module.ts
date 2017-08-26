@@ -14,12 +14,11 @@ import { Storage } from '@ionic/storage';
 import { AgendamentoDao } from '../domain/agendamento/agendamento-dao';
 
 function provideStorage() {
-  return new Storage(['indexeddb'], {
+  return new Storage({
     name: 'aluracar',
     storeName: 'agendamentos'
   });
 }
-
 
 @NgModule({
   declarations: [
@@ -45,7 +44,7 @@ function provideStorage() {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}, 
     AgendamentoService,
-    {provide: Storage, useFactory: provideStorage},
+    { provide: Storage, useFactory: provideStorage},
     AgendamentoDao
   ]
 })

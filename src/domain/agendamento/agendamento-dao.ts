@@ -18,4 +18,13 @@ export class AgendamentoDao {
         return agendamento.email + agendamento.data.substr(0,10);
     }
 
+    ehAgendamentoDuplicado(agendamento: Agendamento) {
+        let key = this._getKey(agendamento);
+        return this._storage
+            .get(key)
+            .then(dado => {
+                return dado ? true : false;
+        });
+    }
+
 }
