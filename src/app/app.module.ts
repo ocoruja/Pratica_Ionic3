@@ -10,6 +10,16 @@ import { HomePage } from '../pages/home/home';
 import { EscolhaPage } from '../pages/escolha/escolha';
 import { CadastroPage } from '../pages/cadastro/cadastro';
 import { AgendamentoService } from '../domain/agendamento/agendamento-service';
+import { Storage } from '@ionic/storage';
+import { AgendamentoDao } from '../domain/agendamento/agendamento-dao';
+
+function provideStorage() {
+  return new Storage(['indexeddb'], {
+    name: 'aluracar',
+    storeName: 'agendamentos'
+  });
+}
+
 
 @NgModule({
   declarations: [
@@ -34,7 +44,9 @@ import { AgendamentoService } from '../domain/agendamento/agendamento-service';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}, 
-    AgendamentoService
+    AgendamentoService,
+    {provide: Storage, useFactory: provideStorage},
+    AgendamentoDao
   ]
 })
 export class AppModule {}

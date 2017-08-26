@@ -56,15 +56,13 @@ export class CadastroPage {
 
     }
     // utilizaremos o método get apenas por orientação do email.txt
-    this._service.agenda(this.agendamento)
-      .then(() => {
-        this._alerta.setSubTitle('Agendamento realizado com sucesso!');
-        this._alerta.present();
+    this._service
+      .agenda(this.agendamento)
 
-      })
-      .catch(err => {
-        console.log(err);
-        this._alerta.setSubTitle('Desculpe, não foi possível realizar o agendamento. Tente mais tarde.');
+      .then(confirmado => {
+        confirmado ?
+          this._alerta.setSubTitle('Agendamento realizado com sucesso!'):
+          this._alerta.setSubTitle('Desculpe, não foi possível realizar o agendamento. Tente mais tarde.');
         this._alerta.present();
       });
 
