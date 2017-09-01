@@ -1,0 +1,24 @@
+------------------------------------------ EMAIL RECEBIDO ------------------------------------------
+
+Prezado Flávio Almeida,
+
+Conforme solicitado, segue o endereço da API com informações adicionais de como proceder para enviar os dados de agendamento.
+
+API: https://aluracar.herokuapp.com/salvarpedido 
+Método: GET 
+
+Parâmetros:
+carro: o nome do carro
+preco: o preço total do carro com seus acessórios
+nome: nome de quem agendou
+endereco: endereço de quem agendou
+email: email de quem agendou
+dataAgendamento: a data do agendamento
+
+OBS: nossa API enfrenta dificuldades técnicas e a cada três agendamentos, o terceiro falhará por razões que ainda desconhecemos. Sugerimos que sua aplicação lide com a lógica de reenvio desses agendamentos que falharam.
+
+Atenciosamente,
+
+Carl Rogers
+
+------------------------------------------ FIM EMAIL ------------------------------------------
