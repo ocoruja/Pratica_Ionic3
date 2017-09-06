@@ -10,8 +10,8 @@ import { UsuarioService } from '../../domain/usuario/usuario-service';
 })
 export class LoginPage {
 
-  public email: string;
-  public senha: string;
+  public email: string = 'joao@alura.com.br';
+  public senha: string = 'alura123';
 
   constructor(
     public navCtrl: NavController, 

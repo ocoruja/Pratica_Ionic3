@@ -15,6 +15,7 @@ import { AgendamentoDao } from '../domain/agendamento/agendamento-dao';
 import { AgendamentosPage } from '../pages/agendamentos/agendamentos';
 import { LoginPage } from '../pages/login/login';
 import { UsuarioService } from '../domain/usuario/usuario-service'
+import { PerfilPage } from '../pages/perfil/perfil';
 
 function provideStorage() {
   return new Storage({
@@ -30,7 +31,8 @@ function provideStorage() {
     EscolhaPage,
     CadastroPage,
     AgendamentosPage,
-    LoginPage
+    LoginPage,
+    PerfilPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ function provideStorage() {
     EscolhaPage,
     CadastroPage,
     AgendamentosPage,
-    LoginPage
+    LoginPage,
+    PerfilPage
   ],
   providers: [
     StatusBar,
